@@ -1,11 +1,9 @@
 <template>
-  <div class="container-fluid">
-      <HeaderComponent/>
-        <div class="container">
-            <router-view/>
-        </div>
-      <FooterComponent />
-  </div>
+  <HeaderComponent/>
+    <div class="container min-vh-100">
+      <router-view/>
+    </div>
+  <FooterComponent />
 </template>
 <script>
 import HeaderComponent from '@/components/HeaderComponent.vue'
@@ -32,7 +30,10 @@ nav {
 
 nav a {
   font-weight: bold;
-  color: #2c3e50;
+  color: white;
+  border: 2px solid green;
+  border-radius: 5px;
+  padding: 2px 5px;
 }
 
 nav a.router-link-exact-active {

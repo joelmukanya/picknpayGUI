@@ -17,10 +17,11 @@ export default createStore({
   },
   actions: {
     fetchProducts: async (content)=> {
-      let result = await axios.get(picknpayUrl);
-      let { data } = await result.results;
-      if(data) {
-        content.commit('setProducts', data);
+      let res = await axios.get(picknpayUrl+"products");
+      let { results }  = await res.data;
+      console.log(results);
+      if(results) {
+        content.commit('setProducts', results);
       }else {
         console.log("There is no data");
       }

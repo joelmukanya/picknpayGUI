@@ -21,13 +21,18 @@ export default createStore({
     }
   },
   actions: {
-    // fetchUsers: async (content) => {
-      
-    // },
+    fetchUsers: async (content) => {
+      let res = await axios.get(picknpayUrl+"users");
+      let {results } = await res.data;
+      if(results) {
+        content.commit('setUsers', results);
+      }else{
+        console.log("There is no data");
+      }
+    },
     fetchProducts: async (content)=> {
       let res = await axios.get(picknpayUrl+"products");
       let { results }  = await res.data;
-      console.log(results);
       if(results) {
         content.commit('setProducts', results);
       }else {

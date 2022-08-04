@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <div class="row">
+    <div class="row my-2">
       <div class="col-md">
         <button class="btn btn-primary">Add New User</button>
       </div>
@@ -8,10 +8,10 @@
         <button class="btn btn-primary">Add New Product</button>
       </div>
     </div>
-    <h2 class="display-2">CRUD Functionality For User</h2>
-    <div class="row">
-      <table class="table table-responsive-md table-hover">
-        <thead>
+    <h2 class="display-2">User</h2>
+    <div class="row table-responsive-md setTableOff">
+      <table class="table table-hover">
+        <thead class="bg-gradient">
           <tr>
             <th scope="col">ID</th>
             <th scope="col">Firstname</th>
@@ -24,18 +24,18 @@
         </thead>
         <tbody>
           <tr v-for="(user, index) in users" :key="index">
-            <td>{{user.id}}</td>
-            <td>{{user.firstname}}</td>
-            <td>{{user.lastname}}</td>
-            <td>{{user.gender}}</td>
-            <td>{{user.address}}</td>
-            <td>{{user.userRole}}</td>
-            <td>{{user.email}}</td>
+            <td data-title="ID">{{user.id}}</td>
+            <td data-title="Firstname">{{user.firstname}}</td>
+            <td data-title="Lastname">{{user.lastname}}</td>
+            <td data-title="Gender">{{user.gender}}</td>
+            <td data-title="Address">{{user.address}}</td>
+            <td data-title="User Role">{{user.userRole}}</td>
+            <td data-title="Email">{{user.email}}</td>
           </tr>
         </tbody>
       </table>
     </div>
-    <h2 class="display-2">CRUD Functionality For Product</h2>
+    <h2 class="display-2">Product</h2>
     <div class="row">
       
     </div>

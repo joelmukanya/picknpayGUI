@@ -24,3 +24,39 @@
     border-bottom-left-radius: 10%;
     border-bottom-right-radius: 10%;      
 }
+
+
+
+
+
+
+
+
+
+/* Media query */
+@media screen and (max-width: 999px) {
+    .setTableOff tbody, 
+    .setTableOff tr,
+    .setTableOff td {
+        display: block;
+    }
+
+    .setTableOff thead tr {
+        position: absolute;
+        display: none;
+    }
+
+    .setTableOff tbody td {
+        position: relative;
+        text-align: center;
+        padding-left: 20vw;
+    }
+
+    .setTableOff tbody td::before {
+        content: attr(data-title);
+        position: absolute;
+        left: 0;
+        font-weight: bold;
+        background-color: darkgrey;
+    }
+}

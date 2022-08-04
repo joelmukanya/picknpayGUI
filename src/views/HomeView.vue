@@ -1,24 +1,12 @@
 <template>
-    <div class="container-fluid">
-        <HeaderComponent/>
-          <div class="container">
-              <router-view/>
-          </div>
-        <FooterComponent />
+    <div>
+        <h2 class="display-2">Picknpay</h2>
+        <p class="lead">
+            Please login to see 
+        </p>
     </div>
 </template>
 
 <script>
-import HeaderComponent from '@/components/HeaderComponent.vue'
-import FooterComponent from '@/components/FooterComponent.vue'
-export default {
-    components: {
-        HeaderComponent,
-        FooterComponent
-    }
-}
+export default {}
 </script>
-
-<style>
-
-</style>

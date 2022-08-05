@@ -52,7 +52,6 @@ export default {
             address: '', 
             email: '',
             userpassword: '',
-
         }
     },
     methods: {

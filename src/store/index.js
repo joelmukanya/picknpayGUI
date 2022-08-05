@@ -51,7 +51,7 @@ export default createStore({
         userpassword
       };
       let res = await axios.post(picknpayUrl+"register", data);
-      let results = await res.json();
+      let results  = await res.data;
       console.log(results);
       if(results) {
         context.commit('setUsers', results);

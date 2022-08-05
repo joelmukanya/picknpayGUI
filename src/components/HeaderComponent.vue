@@ -13,6 +13,15 @@
             <router-link to="/admin">Admin</router-link>
           </li>
         </ul>
+        <!-- User Account -->
+        <ul class="navbar-nav ms-auto mb-2">
+          <li class="nav-item">
+            <router-link to="#">Login</router-link> |
+          </li>
+          <li class="nav-item">
+            <router-link to="/registerUser">Signup</router-link>
+          </li>          
+        </ul>
       </div>
     </div>
   </nav>

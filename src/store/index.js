@@ -38,6 +38,26 @@ export default createStore({
       }else {
         console.log("There is no data");
       }
+    },
+    //Signup
+    signUp: async (context, playload)=> {
+      let {firstname, lastname, gender, address, email, userpassword} = playload;
+      const data = {
+        firstname, 
+        lastname, 
+        gender,
+        address, 
+        email,
+        userpassword
+      };
+      let res = await axios.post(picknpayUrl+"register", data);
+      let results = await res.json();
+      console.log(results);
+      if(results) {
+        context.commit('setUsers', results);
+      }else {
+        console.error("No dota");
+      }
     }
   },
   modules: {

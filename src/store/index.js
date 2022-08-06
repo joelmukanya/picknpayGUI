@@ -1,12 +1,13 @@
 import { createStore } from 'vuex';
 import axios from 'axios';
-// import router from '@/router';
+import router from '@/router';
 // Picknpay url
 const picknpayUrl = "https://picknpayapi.herokuapp.com/";
 export default createStore({
   state: {
     users: null,
-    products: null
+    products: null,
+    showSpinner: true
   },
   getters: {
     getUsers: state => state.users,
@@ -18,45 +19,61 @@ export default createStore({
     },
     setProducts(state, values) {
       state.products = values
+    },
+    setShowSpinner(state, value) {
+      state.showSpinner = value
     }
   },
   actions: {
-    fetchUsers: async (content) => {
+    fetchUsers: async (context) => {
       let res = await axios.get(picknpayUrl+"users");
       let {results } = await res.data;
       if(results) {
-        content.commit('setUsers', results);
-      }else{
-        console.log("There is no data");
+        context.commit('setUsers', results);
       }
     },
-    fetchProducts: async (content)=> {
+    fetchProducts: async (context)=> {
       let res = await axios.get(picknpayUrl+"products");
       let { results }  = await res.data;
       if(results) {
-        content.commit('setProducts', results);
+        context.commit('setProducts', results);
+        context.commit('setShowSpinner', false);
       }else {
-        console.log("There is no data");
+        context.commit('setShowSpinner', true);
+      }
+    },
+    //Login
+    login: async (context, payload) => {
+      const {email, userpassword} = payload;
+      const data = {
+        email,
+        userpassword
+      };
+      let res = await axios.post(picknpayUrl+"login", data);
+      let results = await res.data;
+      if(results) {
+        context.commit('setUsers', results);
+        context.commit('setShowSpinner', false);
       }
     },
     //Signup
-    signUp: async (context, playload)=> {
-      let {firstname, lastname, gender, address, email, userpassword} = playload;
+    signUp: async (context, payload)=> {
+      let {firstname, lastname, gender, address, userRole, email, userpassword} = payload;
       const data = {
         firstname, 
         lastname, 
         gender,
         address, 
+        userRole,
         email,
         userpassword
       };
       let res = await axios.post(picknpayUrl+"register", data);
       let results  = await res.data;
-      console.log(results);
       if(results) {
         context.commit('setUsers', results);
-      }else {
-        console.error("No dota");
+        router.push({name: "login"});
+        context.commit('setShowSpinner', false);
       }
     }
   },

@@ -2,7 +2,7 @@
   <div class="container">
     <div class="row">
         <fieldset>
-            <legend class="display-2 bg-gradient bg-dark text-white">Register</legend>
+            <legend class="display-2 bg-gradient text-dark">Register</legend>
             <form class="form container" method="POST" @submit.prevent="signUp">
                 <div class="row">
                     <input class="form-control text-center" v-model="firstname" type="text" 
@@ -22,12 +22,17 @@
                     </div>
                 </div>
                 <div class="row">
-                    <input class="form-control text-center" v-model="address" type="text" 
-                    placeholder="Enter your address"/>
+                    <textarea class="form-control text-center" 
+                    v-model="address"
+                    placeholder="Enter your address"></textarea>
+                </div>
+                <div class="row my-3">
+                    <input class="form-control text-center" v-model="userRole" type="text" 
+                    placeholder="Enter your role" />
                 </div>
                 <div class="row my-3">
                     <input class="form-control text-center" v-model="email" type="email" 
-                    placeholder="Enter your email" required/>
+                    placeholder="Enter your email"/>
                 </div>
                 <div class="row">
                     <input class="form-control text-center" v-model="userpassword" type="password" 
@@ -50,6 +55,7 @@ export default {
             lastname: '', 
             gender: '',
             address: '', 
+            userRole: '',
             email: '',
             userpassword: '',
         }
@@ -61,6 +67,7 @@ export default {
                 lastname: this.lastname, 
                 gender: this.gender,
                 address: this.address, 
+                userRole: this.userRole,
                 email: this.email,
                 userpassword: this.userpassword,
             })

@@ -13,7 +13,7 @@
     margin: 5px;
     border-radius: 10%;
 }
-.row .card img {
+.row .card img , .sameSize{
     width: 100%;
     height: 50%;  
     border-top-left-radius: 10%;
@@ -35,6 +35,11 @@
 
 /* Media query */
 @media screen and (max-width: 999px) {
+    /* Card */
+    .ourProducts {
+        justify-content: center;
+    }
+    /* Table */
     .setTableOff tbody, 
     .setTableOff tr,
     .setTableOff td {

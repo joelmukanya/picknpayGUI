@@ -16,7 +16,7 @@
         <!-- User Account -->
         <ul class="navbar-nav ms-auto mb-2">
           <li class="nav-item">
-            <router-link to="#">Login</router-link> |
+            <router-link to="/login">Login</router-link> |
           </li>
           <li class="nav-item">
             <router-link to="/registerUser">Signup</router-link>

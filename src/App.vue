@@ -1,6 +1,7 @@
 <template>
   <HeaderComponent/>
     <div class="container min-vh-100">
+      <SpinnerComponent v-show="showSpinner"/>
       <router-view/>
     </div>
   <FooterComponent />
@@ -8,10 +9,17 @@
 <script>
 import HeaderComponent from '@/components/HeaderComponent.vue'
 import FooterComponent from '@/components/FooterComponent.vue'
+import SpinnerComponent from './components/SpinnerComponent.vue'
 export default {
+  computed: {
+    showSpinner() {
+      return this.$store.state.showSpinner
+    }
+  },
   components: {
       HeaderComponent,
-      FooterComponent
+      FooterComponent,
+      SpinnerComponent
   }
 }
 </script>

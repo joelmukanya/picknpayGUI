@@ -1,7 +1,7 @@
 <template>
     <div class="container">
         <h2 class="display-2">Our Products</h2>
-        <div class="row d-flex flex-wrap">
+        <div class="row d-flex flex-wrap ourProducts">
             <div class="card" v-for="(products, index) in products"
              :key="index">
             <img :src="products.prodUrl" class="card-img-top img-fluid" :alt="products.prodName">
